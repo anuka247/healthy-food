@@ -8,15 +8,19 @@ import {
 } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
-const HoolniiZovolgoo = ({ data }) => {
-  console.log("data.img", data.img);
+const HoolniiZovolgoo = ({ hoolniidata }) => {
+  console.log("data.img", hoolniidata.img);
 
   return (
     <ScrollView style={styles.container}>
-      <Link style={styles.button} href={"/idejBolohHool/" + data.id} asChild>
+      <Link
+        style={styles.button}
+        href={"/idejBolohHool/" + hoolniidata.id}
+        asChild
+      >
         <TouchableOpacity style={styles.box}>
-          <Image source={data.img} style={styles.img} />
-          <Text style={styles.textname}> {data.name}</Text>
+          <Image source={hoolniidata.img} style={styles.img} />
+          <Text style={styles.textname}> {hoolniidata.name}</Text>
         </TouchableOpacity>
       </Link>
     </ScrollView>

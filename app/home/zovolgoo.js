@@ -50,12 +50,14 @@ const Zovolgoo = () => {
 
       <View style={styles.obchnitorol}>
         <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
-        <Text style={styles.text3}>Идэж болох хоол хүнснүүд зөвөлгөө</Text>
+        <Text style={styles.text3}>
+          Зөвшөөрсөн ба Зөвшөөрөөгүй хоол хүнснүүд
+        </Text>
       </View>
 
       <View style={styles.menuhead}>
-        {data.map((zovolgoo) => (
-          <HoolniiZovolgoo data={zovolgoo} />
+        {hoolniidata.map((zovolgoo) => (
+          <HoolniiZovolgoo hoolniidata={zovolgoo} />
         ))}
       </View>
     </ScrollView>

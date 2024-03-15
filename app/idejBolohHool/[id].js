@@ -1,6 +1,8 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
 import { useLocalSearchParams, useNavigation } from "expo-router";
+import { hoolniidata } from "../home/zovolgoo";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const IdejBolohHool = () => {
   const navigation = useNavigation();
@@ -18,14 +20,32 @@ const IdejBolohHool = () => {
     });
   }, [navigation]);
   return (
-    <ScrollView>
-      <View>
-        <Text>idejBolohHool</Text>
+    <ScrollView style={styles.container}>
+      <View style={styles.obchnitorol}>
+        <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
+        <Text style={styles.text3}>Идэж болох хоол хүнснүүд Зөвөлгөө</Text>
       </View>
+      <View style={styles.main}></View>
     </ScrollView>
   );
 };
 
 export default IdejBolohHool;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text3: {
+    fontSize: 18,
+    paddingLeft: 10,
+  },
+  obchnitorol: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
+
+  container: {
+    flex: 1,
+    padding: 5,
+    gap: 10,
+  },
+});
