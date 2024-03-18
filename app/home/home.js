@@ -2,33 +2,24 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
-  Image,
   View,
   TouchableOpacity,
 } from "react-native";
 import React from "react";
-import {
-  Feather,
-  MaterialCommunityIcons,
-  FontAwesome5,
-} from "@expo/vector-icons";
-import { Link } from "expo-router";
-
-// ZOLVOGOO OGOH hesgiin zuragnuud
-import meat from "../img/meat.png";
-import tsgaan from "../img/tsgaan.png";
-import vegetables from "../img/vegetables.png";
-import jims from "../img/jims.png";
+import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 
 import Zovolgoohunsnii from "../Zovolgoohunsnii";
 import OvchiniiToroluud from "../OvchiniiToroluud";
+// ZOLVOGOO OGOH hesgiin zuragnuud kalor
 export const zovolgoodata = [
-  { id: 1, img: require("../img/meat.png"), name: "Махан бүтэгдэхүүн " },
-  { id: 2, img: require("../img/tsgaan.png"), name: "Хүнсний ногоо" },
-  { id: 3, img: require("../img/vegetables.png"), name: "Сүүн бүтэгдэхүүн" },
-  { id: 4, img: require("../img/jims.png"), name: "Жимс жимсгэнэ" },
+  { id: 1, img: require("../img/meat.png"), name: "Мах " },
+  { id: 2, img: require("../img/tsgaan.png"), name: "Сүү, цагаан идээ" },
+  { id: 3, img: require("../img/vegetables.png"), name: "Хүнсний ногоо" },
+  { id: 4, img: require("../img/jims.png"), name: "Жимс, жимсгэнэ" },
+  { id: 5, img: require("../img/ur taria.png"), name: "Үр тариа " },
+  { id: 6, img: require("../img/ooh tos.png"), name: "Өөх, тос" },
 ];
+//  ZOLVOGOO OGOH hesgiin iconuud
 export const ovchindata = [
   {
     id: 1,
@@ -65,24 +56,14 @@ const Home = () => (
           />
         </TouchableOpacity>
       </View>
-      {/* search hseg  */}
-      <View style={styles.main}>
-        <View style={styles.search}>
-          <Feather name="search" size={24} color="gray" />
-          <TextInput></TextInput>
-        </View>
-      </View>
 
       {/* gol heseguud  */}
       <View>
         <View style={styles.iconuud}>
           <View style={styles.obchnitorol}>
-            <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
+            <FontAwesome5 name="hand-holding-heart" size={24} color="#416D19" />
             <Text style={styles.text3}>Өвчний төрлүүд </Text>
           </View>
-          <TouchableOpacity style={styles.delgerangui}>
-            <Text style={styles.text2}>Дэлгэрэнгүй </Text>
-          </TouchableOpacity>
         </View>
         <ScrollView horizontal>
           <View style={styles.ovchinboxs}>
@@ -97,9 +78,6 @@ const Home = () => (
           <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
           <Text style={styles.text3}>Зөвөлгөө </Text>
         </View>
-        <TouchableOpacity style={styles.delgerangui}>
-          <Text style={styles.text2}>Дэлгэрэнгүй </Text>
-        </TouchableOpacity>
       </View>
       <View style={styles.zovolgooboxs}>
         {zovolgoodata.map((zovolgoo) => (
@@ -124,14 +102,12 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
   },
-
   zovolgooboxs: {
     justifyContent: "space-around",
-    gap: 5,
+
     flexDirection: "row",
     flexWrap: "wrap",
   },
-
   ovchinboxs: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -149,11 +125,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
   },
-  delgerangui: {},
-  text2: {
-    fontSize: 15,
-    color: "#38b000",
-  },
+
   text3: {
     fontSize: 18,
     paddingLeft: 10,
@@ -175,28 +147,21 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 5,
-    gap: 10,
+    padding: 8,
+    justifyContent: "center",
+    gap: 7,
   },
 
   text: {
     fontSize: 15,
     color: "gray",
   },
-  search: {
-    width: 350,
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 5,
-  },
+
   head: {
     width: 394,
     height: 83,
     borderRadius: 15,
-    backgroundColor: "#73d383",
+    backgroundColor: "#9BCF53",
     padding: 10,
     justifyContent: "space-between",
     flexDirection: "row",

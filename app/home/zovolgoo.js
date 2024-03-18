@@ -4,10 +4,12 @@ import {
   Text,
   View,
   ScrollView,
+  Image,
 } from "react-native";
 import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import HoolniiZovolgoo from "../HoolniiZovolgoo";
+import Layout from "../../src/components/Layout";
 
 const ImgBackground = require("../img/food.jpg");
 
@@ -42,17 +44,12 @@ export const hoolniidata = [
 
 const Zovolgoo = () => {
   return (
-    <ScrollView style={styles.container}>
-      <ImageBackground
-        source={ImgBackground}
-        style={styles.ImageBackground}
-      ></ImageBackground>
-
+    <Layout
+      header={<Image source={ImgBackground} style={styles.ImageBackground} />}
+    >
       <View style={styles.obchnitorol}>
         <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
-        <Text style={styles.text3}>
-          Зөвшөөрсөн ба Зөвшөөрөөгүй хоол хүнснүүд
-        </Text>
+        <Text style={styles.text3}>Хориогүй ба Хориотой хоол хүнснүүд</Text>
       </View>
 
       <View style={styles.menuhead}>
@@ -60,7 +57,7 @@ const Zovolgoo = () => {
           <HoolniiZovolgoo hoolniidata={zovolgoo} />
         ))}
       </View>
-    </ScrollView>
+    </Layout>
   );
 };
 
@@ -86,8 +83,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   ImageBackground: {
-    width: 415,
-    height: 141,
+    width: "100%",
+    height: "100%",
   },
   box: {
     width: 187,

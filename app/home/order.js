@@ -4,10 +4,113 @@ import { FontAwesome5, Ionicons, Feather } from "@expo/vector-icons";
 import chuluuna from "../img/imgHospital/chuluuna.png";
 import setsen from "../img/imgHospital/setsen.png";
 import biriland from "../img/imgHospital/biriland.png";
+import { Colors } from "../../src/constants";
 const Order = () => {
   return (
     <View style={styles.container}>
       <View style={styles.obchnitorol}>
+        <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
+        <Text style={styles.text3}> Мэдлэг </Text>
+      </View>
+      <View style={styles.main}>
+        <View style={styles.asuult1}>
+          <Text>arhi</Text>
+        </View>
+        <View style={styles.asuult1}>
+          <Text>tamhi</Text>
+        </View>
+        <View style={styles.asuult1}>
+          <Text>buruu hoololt</Text>
+        </View>
+        <View style={styles.asuult1}>
+          <Text>ogloonii tsai</Text>
+        </View>
+        <View style={styles.asuult1}>
+          <Text>zovhoololt</Text>
+        </View>
+        <View style={styles.asuult1}>
+          <Text>cola</Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+export default Order;
+
+const styles = StyleSheet.create({
+  asuult1: {
+    borderWidth: 1,
+    width: 350,
+    height: 150,
+    borderRadius: 15,
+  },
+  main: {
+    gap: 10,
+    flexDirection: "column",
+  },
+  hureetailber: {
+    padding: 5,
+    width: 280,
+    height: 100,
+  },
+  text5: {
+    fontSize: 13,
+  },
+  column: {
+    flexDirection: "column",
+    flexWrap: "wrap",
+  },
+  text2: {
+    fontSize: 16,
+  },
+  text: {
+    color: "gray",
+    fontSize: 14,
+  },
+  holboobarih: {
+    padding: 5,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  namehos: {
+    fontSize: 20,
+  },
+  row: {
+    flexDirection: "row",
+  },
+  imgHospital: {
+    width: 120,
+    height: 120,
+    borderRadius: 500,
+  },
+  hospital: {
+    padding: 5,
+    marginBottom: 15,
+    width: 400,
+    backgroundColor: "#73d383",
+    height: 170,
+    borderRadius: 10,
+  },
+  text3: {
+    fontSize: 18,
+    paddingLeft: 10,
+  },
+  container: {
+    padding: 5,
+    gap: 10,
+
+    flex: 1,
+  },
+  obchnitorol: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
+});
+
+{
+  /* <View style={styles.obchnitorol}>
         <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
         <Text style={styles.text3}> Эмнэлэг </Text>
       </View>
@@ -67,68 +170,5 @@ const Order = () => {
           <Feather name="clock" size={24} color="black" />
           <Text style={styles.text}>Ажлын өдөр, Амралтын өдөр </Text>
         </View>
-      </View>
-    </View>
-  );
-};
-
-export default Order;
-
-const styles = StyleSheet.create({
-  hureetailber: {
-    padding: 5,
-    width: 280,
-    height: 100,
-  },
-  text5: {
-    fontSize: 13,
-  },
-  column: {
-    flexDirection: "column",
-    flexWrap: "wrap",
-  },
-  text2: {
-    fontSize: 16,
-  },
-  text: {
-    color: "gray",
-    fontSize: 14,
-  },
-  holboobarih: {
-    padding: 5,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  namehos: {
-    fontSize: 20,
-  },
-  row: {
-    flexDirection: "row",
-  },
-  imgHospital: {
-    width: 120,
-    height: 120,
-    borderRadius: 500,
-  },
-  hospital: {
-    padding: 5,
-    marginBottom: 15,
-    width: 400,
-    backgroundColor: "#73d383",
-    height: 170,
-    borderRadius: 10,
-  },
-  text3: {
-    fontSize: 18,
-    paddingLeft: 10,
-  },
-  container: {
-    padding: 5,
-    gap: 10,
-  },
-  obchnitorol: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-  },
-});
+      </View> */
+}

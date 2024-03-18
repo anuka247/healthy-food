@@ -19,11 +19,21 @@ const Zovolgoo = () => {
     });
   }, [navigation]);
   return (
-    <ScrollView>
-      <View>
-        <Text>hiii</Text>
-        <Text>hiii</Text>
-        <Text>hiii</Text>
+    <ScrollView style={styles.container}>
+      <View style={styles.main}>
+        <View style={styles.suu}>
+          <Image />
+          <Text>suu</Text>
+        </View>
+        <View style={styles.airag}>
+          <Text>airag</Text>
+          <Image />
+        </View>
+
+        <View style={styles.tarag}>
+          <Text>tarag</Text>
+          <Image />
+        </View>
       </View>
     </ScrollView>
   );
@@ -31,4 +41,24 @@ const Zovolgoo = () => {
 
 export default Zovolgoo;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  tarag: {
+    width: 200,
+    height: 200,
+  },
+  airag: {
+    width: 200,
+    height: 200,
+  },
+  suu: {
+    width: 200,
+    height: 200,
+  },
+  main: {},
+  container: {
+    padding: 5,
+    gap: 10,
+
+    flex: 1,
+  },
+});

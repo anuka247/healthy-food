@@ -6,22 +6,24 @@ export default function HomeLayout() {
       <Tabs.Screen
         name="home"
         options={{
-          title: "Home ",
+          title: "Нүүр ",
           tabBarIcon: () => <Feather name="home" size={24} color="black" />,
         }}
       />
       <Tabs.Screen
         name="zovolgoo"
         options={{
-          title: "zovolgoo ",
+          title: "Зөвөлгөө ",
           tabBarIcon: () => <AntDesign name="hearto" size={24} color="black" />,
         }}
       />
       <Tabs.Screen
         name="order"
         options={{
-          title: "Order ",
-          tabBarIcon: () => <Feather name="menu" size={24} color="black" />,
+          title: "Мэдлэг",
+          tabBarIcon: () => (
+            <AntDesign name="checkcircleo" size={24} color="black" />
+          ),
         }}
       />
       <Tabs.Screen
