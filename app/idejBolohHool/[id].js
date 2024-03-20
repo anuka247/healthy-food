@@ -21,11 +21,13 @@ const IdejBolohHool = () => {
   }, [navigation]);
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.obchnitorol}>
+      <View style={[styles.obchnitorol]}>
         <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
         <Text style={styles.text3}>Идэж болох хоол хүнснүүд Зөвөлгөө</Text>
       </View>
-      <View style={styles.main}></View>
+      <View style={styles.main}>
+        <Text style={styles.titletext}>Үр тариа</Text>
+      </View>
     </ScrollView>
   );
 };
@@ -33,6 +35,13 @@ const IdejBolohHool = () => {
 export default IdejBolohHool;
 
 const styles = StyleSheet.create({
+  main: {
+    gap: 10,
+    padding: 10,
+  },
+  titletext: {
+    fontSize: 16,
+  },
   text3: {
     fontSize: 18,
     paddingLeft: 10,

@@ -20,7 +20,7 @@ export default function HomeLayout() {
       <Tabs.Screen
         name="order"
         options={{
-          title: "Мэдлэг",
+          title: "Мэдээлэл",
           tabBarIcon: () => (
             <AntDesign name="checkcircleo" size={24} color="black" />
           ),

@@ -10,7 +10,7 @@ const Order = () => {
     <View style={styles.container}>
       <View style={styles.obchnitorol}>
         <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
-        <Text style={styles.text3}> Мэдлэг </Text>
+        <Text style={styles.text3}> Мэдээлэл </Text>
       </View>
       <View style={styles.main}>
         <View style={styles.asuult1}>
