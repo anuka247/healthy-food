@@ -6,7 +6,7 @@ const OvchiniiToroluud = ({ ovchindata }) => {
   return (
     <Link style={styles.button} href={"ovchiniiTorol/" + ovchindata.id} asChild>
       <TouchableOpacity style={styles.ovchinbox}>
-        <Image source={ovchindata.img} style={styles.iconerhtenimg} />
+        <Image source={{ uri: ovchindata.img }} style={styles.iconerhtenimg} />
         <Text style={styles.texterhten}>{ovchindata.name}</Text>
       </TouchableOpacity>
     </Link>

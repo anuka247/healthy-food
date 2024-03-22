@@ -5,20 +5,14 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 
 import Zovolgoohunsnii from "../Zovolgoohunsnii";
 import OvchiniiToroluud from "../OvchiniiToroluud";
-// ZOLVOGOO OGOH hesgiin zuragnuud kalor
-export const zovolgoodata = [
-  { id: 1, img: require("../img/meat.png"), name: "Мах " },
-  { id: 2, img: require("../img/tsgaan.png"), name: "Сүү, цагаан идээ" },
-  { id: 3, img: require("../img/vegetables.png"), name: "Хүнсний ногоо" },
-  { id: 4, img: require("../img/jims.png"), name: "Жимс, жимсгэнэ" },
-  { id: 5, img: require("../img/ur taria.png"), name: "Үр тариа " },
-  { id: 6, img: require("../img/ooh tos.png"), name: "Өөх, тос" },
-];
+import { UndsenData } from "../data";
+import { getUvchinData } from "../data/service";
+
 //  ZOLVOGOO OGOH hesgiin iconuud
 export const ovchindata = [
   {
@@ -42,51 +36,63 @@ export const ovchindata = [
   { id: 7, img: require("../img/imgIconErhten/saharicon.png"), name: "Сахар" },
 ];
 
-const Home = () => (
-  <ScrollView>
-    <View style={styles.container}>
-      {/* tolgoi deed hseg  */}
-      <View style={[styles.head, styles.shadow]}>
-        <Text style={styles.texttitle}>Welcome back Anu</Text>
-        <TouchableOpacity style={styles.iconprofile}>
-          <MaterialCommunityIcons
-            name="account-circle-outline"
-            size={24}
-            color="black"
-          />
-        </TouchableOpacity>
-      </View>
+const Home = () => {
+  const [uvchinData, setuvchinData] = useState([]);
+  useEffect(() => {
+    const uvchinData = getUvchinData();
+    setuvchinData(uvchinData);
+  }, []);
 
-      {/* gol heseguud  */}
-      <View>
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+        {/* tolgoi deed hseg  */}
+        <View style={[styles.head, styles.shadow]}>
+          <Text style={styles.texttitle}>Welcome back Anu</Text>
+          <TouchableOpacity style={styles.iconprofile}>
+            <MaterialCommunityIcons
+              name="account-circle-outline"
+              size={24}
+              color="black"
+            />
+          </TouchableOpacity>
+        </View>
+
+        {/* gol heseguud  */}
+        <View>
+          <View style={styles.iconuud}>
+            <View style={styles.obchnitorol}>
+              <FontAwesome5
+                name="hand-holding-heart"
+                size={24}
+                color="#416D19"
+              />
+              <Text style={styles.text3}>Өвчний төрлүүд </Text>
+            </View>
+          </View>
+          <ScrollView horizontal>
+            <View style={styles.ovchinboxs}>
+              {uvchinData.map((zuvulguu) => (
+                <OvchiniiToroluud ovchindata={zuvulguu} />
+              ))}
+            </View>
+          </ScrollView>
+        </View>
         <View style={styles.iconuud}>
           <View style={styles.obchnitorol}>
-            <FontAwesome5 name="hand-holding-heart" size={24} color="#416D19" />
-            <Text style={styles.text3}>Өвчний төрлүүд </Text>
+            <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
+            <Text style={styles.text3}>Зөвөлгөө </Text>
           </View>
         </View>
-        <ScrollView horizontal>
-          <View style={styles.ovchinboxs}>
-            {ovchindata.map((zuvulguu) => (
-              <OvchiniiToroluud ovchindata={zuvulguu} />
-            ))}
-          </View>
-        </ScrollView>
-      </View>
-      <View style={styles.iconuud}>
-        <View style={styles.obchnitorol}>
-          <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
-          <Text style={styles.text3}>Зөвөлгөө </Text>
+        <View style={styles.zovolgooboxs}>
+          {UndsenData.map((zovolgoo) => (
+            <Zovolgoohunsnii zovolgoodata={zovolgoo} />
+          ))}
         </View>
       </View>
-      <View style={styles.zovolgooboxs}>
-        {zovolgoodata.map((zovolgoo) => (
-          <Zovolgoohunsnii zovolgoodata={zovolgoo} />
-        ))}
-      </View>
-    </View>
-  </ScrollView>
-);
+    </ScrollView>
+  );
+};
 
 export default Home;
 
