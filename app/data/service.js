@@ -1,3 +1,9 @@
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { UndsenData, buteegduuniiData } from ".";
+import { db } from "../../firebaseConfig";
+
+const undsenData = collection(db, "undsen_data");
+const buteegduun = collection(db, "buteegduun");
 const ovchindata = [
   {
     id: 1,
@@ -38,4 +44,34 @@ const ovchindata = [
 
 export const getUvchinData = () => {
   return ovchindata;
+};
+
+export const getUndsenData = async () => {
+  let data = [];
+  const querySnapshot = await getDocs(undsenData);
+  querySnapshot.forEach((doc) => {
+    data.push({ ...doc.data(), id: doc.id });
+  });
+  return data;
+};
+
+export const setAllUndsenData = async () => {
+  try {
+    const promises = UndsenData.map((data) => addDoc(undsenData, data));
+
+    await Promise.all(promises);
+    console.log("All data added");
+  } catch (e) {
+    console.error("setAllUndsenData: ", e);
+  }
+};
+export const setAllButeegduun = async () => {
+  try {
+    const promises = buteegduuniiData.map((data) => addDoc(buteegduun, data));
+
+    await Promise.all(promises);
+    console.log("All data added");
+  } catch (e) {
+    console.error("setAllUndsenData: ", e);
+  }
 };

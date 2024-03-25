@@ -1,49 +1,75 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  ImageBackground,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { FontAwesome5, Ionicons, Feather } from "@expo/vector-icons";
 import chuluuna from "../img/imgHospital/chuluuna.png";
 import setsen from "../img/imgHospital/setsen.png";
 import biriland from "../img/imgHospital/biriland.png";
 import { Colors } from "../../src/constants";
+
 const Order = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.obchnitorol}>
-        <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
-        <Text style={styles.text3}> Мэдээлэл </Text>
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.obchnitorol}>
+          <FontAwesome5 name="hand-holding-heart" size={24} color="#008000" />
+          <Text style={styles.text3}> Мэдээлэл </Text>
+        </View>
+        <View style={styles.main}>
+          <View style={styles.asuult1}>
+            <Image
+              style={styles.zurg}
+              source={{
+                uri: "https://cdn.eagle.mn/uploads/userfiles/images/Drink-Alcohol-in-glass-ice-The-Trent.jpg",
+              }}
+            />
+            <Text styl={styles.txt}>Aрхины хор уушиг юу вэ?</Text>
+          </View>
+          <View style={styles.asuult1}>
+            <Text styl={styles.txt}>тамхи татах хор уушиг</Text>
+          </View>
+          <View style={styles.asuult1}>
+            <Text>buruu hoololt</Text>
+          </View>
+          <View style={styles.asuult1}>
+            <Text>ogloonii tsai</Text>
+          </View>
+          <View style={styles.asuult1}>
+            <Text>zovhoololt</Text>
+          </View>
+          <View style={styles.asuult1}>
+            <Text>cola</Text>
+          </View>
+        </View>
       </View>
-      <View style={styles.main}>
-        <View style={styles.asuult1}>
-          <Text>arhi</Text>
-        </View>
-        <View style={styles.asuult1}>
-          <Text>tamhi</Text>
-        </View>
-        <View style={styles.asuult1}>
-          <Text>buruu hoololt</Text>
-        </View>
-        <View style={styles.asuult1}>
-          <Text>ogloonii tsai</Text>
-        </View>
-        <View style={styles.asuult1}>
-          <Text>zovhoololt</Text>
-        </View>
-        <View style={styles.asuult1}>
-          <Text>cola</Text>
-        </View>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
 export default Order;
 
 const styles = StyleSheet.create({
+  txt: {
+    fontSize: 20,
+  },
+  zurg: {
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2,
+  },
   asuult1: {
     borderWidth: 1,
     width: 350,
     height: 150,
     borderRadius: 15,
+    flexDirection: "row",
   },
   main: {
     gap: 10,
@@ -97,9 +123,8 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   container: {
-    padding: 5,
+    padding: 10,
     gap: 10,
-
     flex: 1,
   },
   obchnitorol: {

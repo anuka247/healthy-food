@@ -2,13 +2,13 @@ import { StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 
-const Zovolgoohunsnii = ({ zovolgoodata }) => {
-  console.log(zovolgoodata);
+const Zovolgoohunsnii = ({ UndsenData }) => {
+  console.log(UndsenData);
   return (
-    <Link href={"zovolgoo/" + zovolgoodata.id} asChild>
+    <Link href={"zovolgoo/" + UndsenData.id} asChild>
       <TouchableOpacity style={styles.zovolgoobox}>
-        <Image source={zovolgoodata.img} style={styles.Image} />
-        <Text style={styles.textname}> {zovolgoodata.name}</Text>
+        <Image source={{ uri: UndsenData.img }} style={styles.Image} />
+        <Text style={styles.textname}> {UndsenData.name}</Text>
       </TouchableOpacity>
     </Link>
   );

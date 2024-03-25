@@ -7,11 +7,14 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
-
 import Zovolgoohunsnii from "../Zovolgoohunsnii";
 import OvchiniiToroluud from "../OvchiniiToroluud";
-import { UndsenData } from "../data";
-import { getUvchinData } from "../data/service";
+import {
+  getUndsenData,
+  getUvchinData,
+  setAllButeegduun,
+  setAllUndsenData,
+} from "../data/service";
 
 //  ZOLVOGOO OGOH hesgiin iconuud
 export const ovchindata = [
@@ -38,9 +41,12 @@ export const ovchindata = [
 
 const Home = () => {
   const [uvchinData, setuvchinData] = useState([]);
+  const [undsenData, setUndsenData] = useState([]);
   useEffect(() => {
     const uvchinData = getUvchinData();
     setuvchinData(uvchinData);
+
+    getUndsenData().then((res) => setUndsenData(res));
   }, []);
 
   return (
@@ -85,8 +91,8 @@ const Home = () => {
           </View>
         </View>
         <View style={styles.zovolgooboxs}>
-          {UndsenData.map((zovolgoo) => (
-            <Zovolgoohunsnii zovolgoodata={zovolgoo} />
+          {undsenData.map((zovolgoo) => (
+            <Zovolgoohunsnii UndsenData={zovolgoo} />
           ))}
         </View>
       </View>

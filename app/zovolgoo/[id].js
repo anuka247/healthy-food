@@ -1,8 +1,7 @@
 import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
 import React, { useEffect } from "react";
 import { Link, useLocalSearchParams, useNavigation } from "expo-router";
-import { zovolgoodata } from "../home/home";
-import { suunButeegdenhenData } from "../data";
+import { UndsenData, buteegduuniiData, suunButeegdenhenData } from "../data";
 import suu from "../img/imgPngKalori/tsagaanIdeepng/suu.png";
 import aaruul from "../img/imgPngKalori/tsagaanIdeepng/aaruulkalor.png";
 
@@ -17,7 +16,8 @@ const Zovolgoo = () => {
   const params = useLocalSearchParams();
   const zuvulguuId = params.id;
 
-  const zuvulguuData = zovolgoodata.find((obj) => obj.id == zuvulguuId);
+  const zuvulguuData = UndsenData.find((obj) => obj.id == zuvulguuId);
+  const list = buteegduuniiData.filter((obj) => obj.type == zuvulguuId);
   console.log(zuvulguuData);
 
   useEffect(() => {
@@ -30,92 +30,22 @@ const Zovolgoo = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.main}>
-        <View style={[styles.box, styles.shadow]}>
-          <Text style={styles.titletext}> Сүү </Text>
-          <Image source={suu} style={styles.Image} />
-          <View style={styles.textbox}>
-            <Text style={styles.text}>Хэмжээ: 100 гр </Text>
-            <Text style={styles.text}>Нүүрс ус: 4.8 </Text>
-            <Text style={styles.text}>Холестерин: 11 </Text>
-            <Text style={styles.text}>Өөх тос: 3.5 </Text>
-            <Text style={styles.text}>Уураг: 3.3 </Text>
-            <Text style={styles.text}>Илчлэг ккал: 64 </Text>
+        {list.map((obj) => (
+          <View
+            style={[styles.box, styles.shadow, { backgroundColor: obj.color }]}
+          >
+            <Text style={styles.titletext}> {obj.name} </Text>
+            <Image source={obj.img} style={styles.Image} />
+            <View style={styles.textbox}>
+              <Text style={styles.text}>Хэмжээ: {obj.size} </Text>
+              <Text style={styles.text}>Нүүрс ус: {obj.nuursUs} </Text>
+              <Text style={styles.text}>Холестерин:{obj.holistrin} </Text>
+              <Text style={styles.text}>Өөх тос: {obj.tos} </Text>
+              <Text style={styles.text}>Уураг:{obj.uurag} </Text>
+              <Text style={styles.text}>Илчлэг ккал: {obj.ilchleg}</Text>
+            </View>
           </View>
-        </View>
-
-        <View style={[styles.box, styles.shadow]}>
-          <Text style={styles.titletext}> Ааруул </Text>
-          <Image source={aaruul} style={styles.Image} />
-          <View style={styles.textbox}>
-            <Text style={styles.text}>Хэмжээ: 100 гр </Text>
-            <Text style={styles.text}>Нүүрс ус:12.7 </Text>
-            <Text style={styles.text}>Холестерин: - </Text>
-            <Text style={styles.text}>Өөх тос:29.5 </Text>
-            <Text style={styles.text}>Уураг: 9.7 </Text>
-            <Text style={styles.text}>Илчлэг ккал: 474.8 </Text>
-          </View>
-        </View>
-
-        <View style={[styles.box, styles.shadow]}>
-          <Text style={styles.titletext}> Айраг </Text>
-          <Image source={airag} style={styles.Image} />
-          <View style={styles.textbox}>
-            <Text style={styles.text}>Хэмжээ: 100 гр </Text>
-            <Text style={styles.text}>Нүүрс ус:12.7 </Text>
-            <Text style={styles.text}>Холестерин: - </Text>
-            <Text style={styles.text}>Өөх тос:29.5 </Text>
-            <Text style={styles.text}>Уураг: 9.7 </Text>
-            <Text style={styles.text}>Илчлэг ккал: 474.8 </Text>
-          </View>
-        </View>
-        <View style={[styles.box, styles.shadow]}>
-          <Text style={styles.titletext}> Тараг </Text>
-          <Image source={tarag} style={styles.Image} />
-          <View style={styles.textbox}>
-            <Text style={styles.text}>Хэмжээ: 100 гр </Text>
-            <Text style={styles.text}>Нүүрс ус:4.8 </Text>
-            <Text style={styles.text}>Холестерин: - </Text>
-            <Text style={styles.text}>Өөх тос: 3.5 </Text>
-            <Text style={styles.text}>Уураг: 3.3 </Text>
-            <Text style={styles.text}>Илчлэг ккал: 64 </Text>
-          </View>
-        </View>
-        <View style={[styles.box, styles.shadow]}>
-          <Text style={styles.titletext}> Аарц </Text>
-          <Image source={aarts} style={styles.Image} />
-          <View style={styles.textbox}>
-            <Text style={styles.text}>Хэмжээ: 100 гр </Text>
-            <Text style={styles.text}>Нүүрс ус: 4.8 </Text>
-            <Text style={styles.text}>Холестерин: - </Text>
-            <Text style={styles.text}>Өөх тос: 3.5 </Text>
-            <Text style={styles.text}>Уураг: 3.3 </Text>
-            <Text style={styles.text}>Илчлэг ккал: 64 </Text>
-          </View>
-        </View>
-        <View style={[styles.box, styles.shadow]}>
-          <Text style={styles.titletext}> Бяслаг </Text>
-          <Image source={byslag} style={styles.Image} />
-          <View style={styles.textbox}>
-            <Text style={styles.text}>Хэмжээ: 100 гр </Text>
-            <Text style={styles.text}>Нүүрс ус: 4.8 </Text>
-            <Text style={styles.text}>Холестерин: - </Text>
-            <Text style={styles.text}>Өөх тос: 3.5 </Text>
-            <Text style={styles.text}>Уураг: 3.3 </Text>
-            <Text style={styles.text}>Илчлэг ккал: 64 </Text>
-          </View>
-        </View>
-        <View style={[styles.box, styles.shadow]}>
-          <Text style={styles.titletext}> Цөцгий </Text>
-          <Image source={tsotsgii} style={styles.Image} />
-          <View style={styles.textbox}>
-            <Text style={styles.text}>Хэмжээ: 100 гр </Text>
-            <Text style={styles.text}>Нүүрс ус: 4.8 </Text>
-            <Text style={styles.text}>Холестерин: - </Text>
-            <Text style={styles.text}>Өөх тос: 3.5 </Text>
-            <Text style={styles.text}>Уураг: 3.3 </Text>
-            <Text style={styles.text}>Илчлэг ккал: 64 </Text>
-          </View>
-        </View>
+        ))}
       </View>
     </ScrollView>
   );
