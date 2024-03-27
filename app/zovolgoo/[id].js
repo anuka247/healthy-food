@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocalSearchParams, useNavigation } from "expo-router";
 import { UndsenData, buteegduuniiData, suunButeegdenhenData } from "../data";
 import suu from "../img/imgPngKalori/tsagaanIdeepng/suu.png";
@@ -10,32 +10,41 @@ import byslag from "../img/imgPngKalori/tsagaanIdeepng/cheese1.png";
 import tarag from "../img/imgPngKalori/tsagaanIdeepng/tarag.png";
 import airag from "../img/imgPngKalori/tsagaanIdeepng/airag1.png";
 import tsotsgii from "../img/imgPngKalori/tsagaanIdeepng/tsotsgii.png";
+import { getUndsenById } from "../data/service";
 
 const Zovolgoo = () => {
   const navigation = useNavigation();
   const params = useLocalSearchParams();
   const zuvulguuId = params.id;
+  const name = params.name;
 
-  const zuvulguuData = UndsenData.find((obj) => obj.id == zuvulguuId);
-  const list = buteegduuniiData.filter((obj) => obj.type == zuvulguuId);
-  console.log(zuvulguuData);
+  const [zuvulguuData, setZuvulguuData] = useState([]);
+
+  console.log("+++++++++++++++++", zuvulguuData, zuvulguuId);
+
+  useEffect(() => {
+    getUndsenById(zuvulguuId).then((data) => {
+      console.log("data", data);
+      if (data) setZuvulguuData(data);
+    });
+  }, [zuvulguuId]);
 
   useEffect(() => {
     navigation.setOptions({
       headerShown: true,
       headerBackTitleVisible: false,
-      headerTitle: zuvulguuData.name,
+      headerTitle: name,
     });
   }, [navigation]);
   return (
     <ScrollView style={styles.container}>
       <View style={styles.main}>
-        {list.map((obj) => (
+        {zuvulguuData.map((obj) => (
           <View
             style={[styles.box, styles.shadow, { backgroundColor: obj.color }]}
           >
-            <Text style={styles.titletext}> {obj.name} </Text>
-            <Image source={obj.img} style={styles.Image} />
+            <Text style={styles.titletext}>{obj.name} </Text>
+            <Image source={{ uri: obj.img }} style={styles.Image} />
             <View style={styles.textbox}>
               <Text style={styles.text}>Хэмжээ: {obj.size} </Text>
               <Text style={styles.text}>Нүүрс ус: {obj.nuursUs} </Text>

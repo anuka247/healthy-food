@@ -5,7 +5,13 @@ import { Link } from "expo-router";
 const Zovolgoohunsnii = ({ UndsenData }) => {
   console.log(UndsenData);
   return (
-    <Link href={"zovolgoo/" + UndsenData.id} asChild>
+    <Link
+      href={{
+        pathname: "zovolgoo/[id]",
+        params: { id: UndsenData.id, name: UndsenData.name },
+      }}
+      asChild
+    >
       <TouchableOpacity style={styles.zovolgoobox}>
         <Image source={{ uri: UndsenData.img }} style={styles.Image} />
         <Text style={styles.textname}> {UndsenData.name}</Text>

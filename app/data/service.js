@@ -1,4 +1,12 @@
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  getDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 import { UndsenData, buteegduuniiData } from ".";
 import { db } from "../../firebaseConfig";
 
@@ -53,6 +61,21 @@ export const getUndsenData = async () => {
     data.push({ ...doc.data(), id: doc.id });
   });
   return data;
+};
+export const getUndsenById = async (id) => {
+  try {
+    const q = query(buteegduun, where("type", "==", parseInt(id)));
+    let data = [];
+    const snapshot = await getDocs(q);
+    console.log("    snapshot.size", snapshot.size);
+    snapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      data.push({ ...doc.data(), id: doc.id });
+    });
+    return data;
+  } catch (error) {
+    console.log("getUndsenById", error);
+  }
 };
 
 export const setAllUndsenData = async () => {
