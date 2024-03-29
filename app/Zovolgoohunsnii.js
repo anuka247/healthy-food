@@ -8,7 +8,7 @@ const Zovolgoohunsnii = ({ UndsenData }) => {
     <Link
       href={{
         pathname: "zovolgoo/[id]",
-        params: { id: UndsenData.id, name: UndsenData.name },
+        params: { ...UndsenData },
       }}
       asChild
     >
