@@ -33,19 +33,50 @@ const Order = () => {
             <Text styl={styles.txt}>Aрхины хор уушиг юу вэ?</Text>
           </View>
           <View style={styles.asuult1}>
-            <Text styl={styles.txt}>тамхи татах хор уушиг</Text>
+            <Image
+              style={styles.zurg}
+              source={{
+                uri: "https://content.ikon.mn/news/2022/4/18/9i0f0z_tamhi_x974.jpg",
+              }}
+            />
+            <Text styl={styles.txt}>Тамхи татах хор уушиг</Text>
           </View>
           <View style={styles.asuult1}>
-            <Text>buruu hoololt</Text>
+            <Image
+              style={styles.zurg}
+              source={{
+                uri: "https://cloud.dnd.mn/wp-content/uploads/2022/06/turgenhool.jpeg",
+              }}
+            />
+            <Text>Буруу хоололт </Text>
           </View>
           <View style={styles.asuult1}>
-            <Text>ogloonii tsai</Text>
+            <Image
+              style={styles.zurg}
+              source={{
+                uri: "https://graph.caak.mn/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeGRZRnc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6d3d2914a9eefb622a985e760c0d5a9fc0d00ad4/05_nwuYs7s.jpg",
+              }}
+            />
+            <Text> Өглөөний цайны ач тус</Text>
+          </View>
+
+          <View style={styles.asuult1}>
+            <Image
+              style={styles.zurg}
+              source={{
+                uri: "https://zarig.mn/images-library/a8bb65cba8745a93224daf6fa90dd29e.jpg",
+              }}
+            />
+            <Text> Гаазтай ундааны хор уушиг</Text>
           </View>
           <View style={styles.asuult1}>
-            <Text>zovhoololt</Text>
-          </View>
-          <View style={styles.asuult1}>
-            <Text>cola</Text>
+            <Image
+              style={styles.zurg}
+              source={{
+                uri: "https://mamaclub.info/wp-content/uploads/img9f8717c/16-07-20/1594918158_5025.jpg",
+              }}
+            />
+            <Text>Тараглалтын хор уушиг</Text>
           </View>
         </View>
       </View>
@@ -57,7 +88,7 @@ export default Order;
 
 const styles = StyleSheet.create({
   txt: {
-    fontSize: 20,
+    fontSize: 30,
   },
   zurg: {
     width: 150,
@@ -65,8 +96,8 @@ const styles = StyleSheet.create({
     borderRadius: 150 / 2,
   },
   asuult1: {
-    borderWidth: 1,
     width: 350,
+    backgroundColor: "lightgray",
     height: 150,
     borderRadius: 15,
     flexDirection: "row",
@@ -74,6 +105,7 @@ const styles = StyleSheet.create({
   main: {
     gap: 10,
     flexDirection: "column",
+    justifyContent: "center",
   },
   hureetailber: {
     padding: 5,
