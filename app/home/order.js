@@ -39,7 +39,7 @@ const Order = () => {
                 uri: "https://content.ikon.mn/news/2022/4/18/9i0f0z_tamhi_x974.jpg",
               }}
             />
-            <Text styl={styles.txt}>Тамхи татах хор уушиг</Text>
+            <Text styl={styles.txt}>Тамхи татах хор уушиг юу вэ?</Text>
           </View>
           <View style={styles.asuult1}>
             <Image
@@ -67,7 +67,7 @@ const Order = () => {
                 uri: "https://zarig.mn/images-library/a8bb65cba8745a93224daf6fa90dd29e.jpg",
               }}
             />
-            <Text> Гаазтай ундааны хор уушиг</Text>
+            <Text> Гаазтай ундааны хор уушиг юу вэ?</Text>
           </View>
           <View style={styles.asuult1}>
             <Image
@@ -76,7 +76,7 @@ const Order = () => {
                 uri: "https://mamaclub.info/wp-content/uploads/img9f8717c/16-07-20/1594918158_5025.jpg",
               }}
             />
-            <Text>Тараглалтын хор уушиг</Text>
+            <Text>Тараглалтын хор уушиг юу вэ?</Text>
           </View>
         </View>
       </View>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   asuult1: {
     width: 350,
-    backgroundColor: "lightgray",
+    gap: 10,
     height: 150,
     borderRadius: 15,
     flexDirection: "row",
